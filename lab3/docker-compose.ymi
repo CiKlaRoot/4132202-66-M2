@@ -1,0 +1,17 @@
+version: "2"
+services: 
+    wed:
+      build:
+      comtainer_name: web_service
+      ports:
+        - 8000:80
+      volumse:
+        - ./html:/var/www/html/
+      links:
+        - "db"
+db:
+   image: mysql:5.7.44
+   ports:
+     - 3306:3306
+   encironment:
+      MYSQL_ROOT_PASSWORD: 1234
